@@ -1,9 +1,7 @@
 
-
 # Load Modules into your environment path $env:PSModulePath from the following locations
-$env:PSModulePath = $env:PSModulePath,'\\files-01\Powershell$' -join [System.IO.Path]::PathSeparator
-if(Test-Path -Path "C:\Users\lucas\OneDrive - Campus XII Avenue\Powershell\Modules") {$env:PSModulePath = $env:PSModulePath,'C:\Users\lucas\OneDrive - Campus XII Avenue\Powershell\Modules' -join [System.IO.Path]::PathSeparator}
-if(Test-Path -Path "C:\Users\l.moser\OneDrive - Campus XII Avenue\Powershell\Modules") {$env:PSModulePath = $env:PSModulePath,'C:\Users\l.moser\OneDrive - Campus XII Avenue\Powershell\Modules' -join [System.IO.Path]::PathSeparator}
+#$env:PSModulePath = $env:PSModulePath,'\\xxxx\Powershell$' -join [System.IO.Path]::PathSeparator
+if(Test-Path -Path "$env:USERPROFILE\OneDrive - Campus XII Avenue\Powershell\Modules") {$env:PSModulePath = $env:PSModulePath,'$env:USERPROFILE\OneDrive - Campus XII Avenue\Powershell\Modules' -join [System.IO.Path]::PathSeparator}
 
 # Load scripts dot sourcing from the following locations
 if(Test-Path -Path "$env:USERPROFILE\OneDrive - Campus XII Avenue\Powershell\Scripts") {
@@ -13,19 +11,8 @@ if(Test-Path -Path "$env:USERPROFILE\OneDrive - Campus XII Avenue\Powershell\Scr
     }
 }
 
-# Load scripts into your environment path $env:path from the following locations
-$env:Path += ";D:\SysAdmin\scripts\PowerShellBasics"
-$env:Path += ";D:\SysAdmin\scripts\Connectors"
-$env:Path += ";D:\SysAdmin\scripts\Office365"
-#if(Test-Path -Path "C:\Users\lucas\OneDrive - Campus XII Avenue\Powershell\Scripts") {$env:Path += ";C:\Users\lucas\OneDrive - Campus XII Avenue\Powershell\Scripts"}
-#if(Test-Path -Path "C:\Users\l.moser\OneDrive - Campus XII Avenue\Powershell\Scripts") {$env:Path += ";C:\Users\l.moser\OneDrive - Campus XII Avenue\Powershell\Scripts"}
 
-#Set-Alias Get-MailDomainInfo Get-MailDomainInfo.ps1
-
-function Reload-Profile {
-    & $profile
-}
-
+function Reload-Profile { & $profile }
 
 Function BackUp-Profile {
     $destination="$env:USERPROFILE\OneDrive - Campus XII Avenue\Powershell\Profil"
@@ -86,4 +73,3 @@ function Update-Profile {
         Remove-Item "$env:temp/Microsoft.PowerShell_profile.ps1" -ErrorAction SilentlyContinue
     }
 }
-
