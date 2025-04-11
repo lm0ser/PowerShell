@@ -70,7 +70,7 @@ function Update-PowerShell {
 # Check for Profile Updates
 function Update-Profile {
     try {
-        $url = "https://raw.githubusercontent.com/ChrisTitusTech/powershell-profile/main/Microsoft.PowerShell_profile.ps1"
+        $url = "https://github.com/lm0ser/PowerShell/blob/main/Microsoft.PowerShell_profile.ps1"
         $oldhash = Get-FileHash $PROFILE
         Invoke-RestMethod $url -OutFile "$env:temp/Microsoft.PowerShell_profile.ps1"
         $newhash = Get-FileHash "$env:temp/Microsoft.PowerShell_profile.ps1"
