@@ -1,8 +1,5 @@
 
 
-# Set default variables
-#$global:Cred = Import-Clixml -Path "$env:USERPROFILE\OneDrive - Campus XII Avenue\Powershell\Profil\administrateur-campus12.cred"
-
 # Load Modules into your environment path $env:PSModulePath from the following locations
 $env:PSModulePath = $env:PSModulePath,'\\files-01\Powershell$' -join [System.IO.Path]::PathSeparator
 if(Test-Path -Path "C:\Users\lucas\OneDrive - Campus XII Avenue\Powershell\Modules") {$env:PSModulePath = $env:PSModulePath,'C:\Users\lucas\OneDrive - Campus XII Avenue\Powershell\Modules' -join [System.IO.Path]::PathSeparator}
